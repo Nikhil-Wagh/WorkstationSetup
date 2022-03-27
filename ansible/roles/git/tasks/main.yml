@@ -1,0 +1,6 @@
+---
+- name: Setup Name, Email and default editor for Git
+  become: no
+  copy:
+    src: gitconfig
+    dest: ~/.gitconfig

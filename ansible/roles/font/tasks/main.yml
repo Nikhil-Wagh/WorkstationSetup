@@ -1,0 +1,5 @@
+---
+- name: Install Microsoft fonts
+  apt:
+    name: ttf-mscorefonts-installer
+    state: present

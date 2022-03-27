@@ -1,0 +1,24 @@
+---
+- name: Install ZSH
+  apt:
+    name: zsh
+
+- name: Check if OhMyZSH already exists
+  stat:
+    path: ~/.oh-my-zsh
+  register: oh_my_zsh_stat
+
+# Install when dir is not present
+- name: Install OhMyZSH
+  include: oh_my_zsh.yml
+  when: not oh_my_zsh_stat.stat.exists
+
+- name: Install zsh plugins
+  apt:
+    pkg:
+      - fzf
+      - zsh-autosuggestions
+      - zsh-syntax-highlighting
+
+- name: Install Autojump
+  include: autojump.yml

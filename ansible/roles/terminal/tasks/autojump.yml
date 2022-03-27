@@ -1,0 +1,20 @@
+---
+# These sometimes don't work properly run the commands manually
+- name: Clone Autojump
+  git:
+    repo: https://github.com/wting/autojump
+    dest: "{{ autojump_repo_tmp_path }}"
+
+- name: Install Autojump
+  script: "{{ autojump_repo_tmp_path }}/install.py"
+  ignore_errors: yes
+
+- name: Source Autojump from zshrc
+  lineinfile:
+    path: ~/.zshrc
+    line: "[[ -s /home/nikhil/.autojump/etc/profile.d/autojump.sh ]] && source /home/nikhil/.autojump/etc/profile.d/autojump.sh"
+
+- name: Remove Autojump temp repo
+  file:
+    path: "{{ autojump_repo_tmp_path }}"
+    state: absent

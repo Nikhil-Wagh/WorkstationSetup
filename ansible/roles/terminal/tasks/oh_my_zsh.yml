@@ -1,0 +1,17 @@
+---
+- name: Download OhMyZSH script
+  uri:
+    url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+    dest: "{{ zsh_install_script_tmp_path }}"
+
+- name: Execute OhMyZSH install script
+  shell: sh "{{ zsh_install_script_tmp_path }}" --unattended
+  become: no
+
+- name: Remove OhMyZSH install script
+  file:
+    path: "{{ zsh_install_script_tmp_path }}"
+    state: absent
+
+- name: Make ZSH as default shell
+  shell: chsh -s $(which zsh)
