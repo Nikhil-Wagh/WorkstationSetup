@@ -1,0 +1,17 @@
+---
+- name: Install Visual Studio Code
+  snap:
+    name: code
+    classic: yes
+
+- name: Install VSCode extensions
+  become: no
+  visual_studio_code_extensions:
+    - vscodevim.vim
+    - dendron.dendron
+    - ms-python.python
+    - ms-vscode.cpptools
+    - esbenp.prettier-vscode
+    - vscjava.vscode-java-debug
+  when: no
+  # Skipping this as login is more efficient

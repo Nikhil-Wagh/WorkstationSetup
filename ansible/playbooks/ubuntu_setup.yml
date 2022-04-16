@@ -5,3 +5,4 @@
     - { role: terminal, tags: terminal }
     - { role: font, tags: font }
     - { role: git, tags: git }
+    - { role: vscode, tags: vscode }
