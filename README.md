@@ -12,3 +12,4 @@ ssh -T git@github.com
 
 ## TODO
 - [x] Install variety
+- [x] Increase keyrepeat

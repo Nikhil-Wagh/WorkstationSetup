@@ -6,3 +6,6 @@
 
 - debug:
     msg: "Reboot is required for `Swap CapsLock with Escape` to work"
+
+- name: Increase keyrepeat
+  shell: gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20 && gsettings set org.gnome.desktop.peripherals.keyboard delay 200
