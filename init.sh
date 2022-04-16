@@ -70,5 +70,5 @@ fi
 # even if user is changed with su -c
 log "Run the following commands:"
 log "\tpython3 -m pip install --user ansible"
-log "\tansible-playbook playbooks/ubuntu_setup.yml --extra_vars 'ansible_sudo_pass=<PASSWORD>"
+log "\t ansible-playbook playbooks/ubuntu_setup.yml --extra-vars 'ansible_sudo_pass=<PASSWORD>'" # mind the space, for no-history
 log "DONE"
