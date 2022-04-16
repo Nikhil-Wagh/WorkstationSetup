@@ -7,6 +7,7 @@
   stat:
     path: ~/.oh-my-zsh
   register: oh_my_zsh_stat
+  become: no
 
 # Install when dir is not present
 - name: Install OhMyZSH

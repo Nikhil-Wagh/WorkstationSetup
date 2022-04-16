@@ -6,10 +6,11 @@
     dest: "{{ autojump_repo_tmp_path }}"
 
 - name: Install Autojump
-  script: "{{ autojump_repo_tmp_path }}/install.py"
+  script: "python3 {{ autojump_repo_tmp_path }}/install.py"
   ignore_errors: yes
 
 - name: Source Autojump from zshrc
+  become: no
   lineinfile:
     path: ~/.zshrc
     line: "[[ -s /home/nikhil/.autojump/etc/profile.d/autojump.sh ]] && source /home/nikhil/.autojump/etc/profile.d/autojump.sh"

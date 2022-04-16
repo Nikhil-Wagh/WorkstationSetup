@@ -1,3 +1,6 @@
 ---
 - name: Swap CapsLock with Escape
   shell: sudo sed -i '/XKBOPTIONS=/c\XKBOPTIONS="caps:swapescape"' /etc/default/keyboard
+
+- debug:
+    msg: "Reboot is required for `Swap CapsLock with Escape` to work"

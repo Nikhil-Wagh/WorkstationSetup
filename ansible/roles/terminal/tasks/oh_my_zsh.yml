@@ -7,6 +7,8 @@
 - name: Execute OhMyZSH install script
   shell: sh "{{ zsh_install_script_tmp_path }}" --unattended
   become: no
+  ignore_errors: yes
+  run_once: yes
 
 - name: Remove OhMyZSH install script
   file:
@@ -15,3 +17,4 @@
 
 - name: Make ZSH as default shell
   shell: chsh -s $(which zsh)
+  become: no
