@@ -1,8 +1,9 @@
 - hosts: localhost
-  become: true
   roles:
+    - { role: python, tags: python }
     - { role: keyboard, tags: keyboard }
     - { role: terminal, tags: terminal }
     - { role: font, tags: font }
     - { role: git, tags: git }
     - { role: vscode, tags: vscode }
+    - { role: homescreen, tags: homescreen }

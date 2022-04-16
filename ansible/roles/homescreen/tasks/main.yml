@@ -1,0 +1,4 @@
+---
+- name: Install variety (Auto wallpaper changer)
+  become: yes
+  apt: variety

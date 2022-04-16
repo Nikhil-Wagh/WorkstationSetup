@@ -1,0 +1,5 @@
+---
+- name: Install python-is-python3 pkg
+  become: yes
+  apt:
+    name: python-is-python3
