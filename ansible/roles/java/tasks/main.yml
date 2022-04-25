@@ -1,0 +1,5 @@
+---
+- name: Install JDK
+  become: yes
+  apt:
+    name: default-jdk

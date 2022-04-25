@@ -7,3 +7,4 @@
     - { role: git, tags: git }
     - { role: vscode, tags: vscode }
     - { role: homescreen, tags: homescreen }
+    - { role: java, tags: java }
