@@ -8,3 +8,4 @@
     - { role: vscode, tags: vscode }
     - { role: homescreen, tags: homescreen }
     - { role: java, tags: java }
+    - { role: docker, tags: docker, become: true }
