@@ -1,0 +1,16 @@
+---
+- name: Enable VM Acceleration
+  pause:
+    prompt: "\nFollow these steps: https://developer.android.com/studio/run/emulator-acceleration#avd-gpu"
+
+- name: Check Hardware acceleration o/p
+  command: ~/Android/Sdk/emulator/emulator -accel-check
+  register: emulator_accel_check
+
+- name: output
+  debug: var=emulator_accel_check.stdout
+
+- assert:
+    that:
+    - emulator_accel_check.stdout | regex_search("KVM \(version \d+\) is installed and usable")
+    success_msg: "KVM installed and usable"

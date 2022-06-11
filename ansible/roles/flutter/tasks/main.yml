@@ -1,0 +1,74 @@
+---
+- name: Flutter pre-requisites
+  apt:
+    pkg:
+    - curl
+    - file
+    - unzip
+    - zip
+    - xz-utils
+    - libglu1-mesa
+    - snapd
+  become: true
+
+- name: Install Flutter
+  snap:
+    name: flutter
+    classic: yes
+  become: true
+
+- name: Get sdk-path
+  command: flutter sdk-path
+  register: flutter_sdk_path
+
+- name: Display Flutter sdk-path
+  debug: var=flutter_sdk_path.stdout_lines
+
+- name: Install Android Studio
+  include: android-studio.yml
+  become: true
+  tags: android-studio
+
+- name: Install Android SDK
+  apt: pkg=android-sdk
+  become: true
+
+- name: Run flutter doctor
+  command: flutter doctor
+  register: flutter_doctor
+
+- name: Display flutter doctor o/p
+  debug: var=flutter_doctor.stdout_lines
+
+- name: Wait for connected device
+  pause:
+    prompt: "Connect a Android Device, enable USB Debugging"
+
+- name: Get connected devices
+  command: flutter devices
+  register: flutter_devices
+
+- name: Make sure device is connected
+  fail:
+    msg: "No connected device"
+  when: "'mobile' not in flutter_devices.stdout"
+
+- name: Android Emulator
+  include: android-emulator.yml
+  tags: android-emulator
+
+- name: Accept license
+  pause:
+    prompt: "Please run this command: flutter doctor --android-licenses"
+
+- name: Install Additional tools
+  apt:
+    pkg:
+    - clang
+    - cmake
+    - ninja-build
+    - pkg-config
+    - libgtk-3-dev
+    - liblzma-dev
+
+# Android Studio -> SDK Manager -> SDK Tools -> Check "Android SDK Command Line Tools" -> OK -> OK
