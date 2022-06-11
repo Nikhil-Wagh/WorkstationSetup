@@ -22,3 +22,9 @@
 
 - name: Install Autojump
   include: autojump.yml
+
+- name: Install tree
+  become: true
+  apt:
+    pkg: tree
+  tags: tree
