@@ -10,9 +10,14 @@ cat ~/.ssh/id_ed25519.pub
 ssh -T git@github.com
 ```
 
+## Ansible
+```bash
+ ansible-playbook playbooks/ubuntu_setup.yml --tags "<TAG>" --extra-vars "ansible_sudo_pass=<PASS>"
+# mind the space, to not show the command in history
+```
 ## TODO
 - [x] Install variety
 - [x] Increase keyrepeat
-- [ ] Install tldr
+- [x] Install tldr
 - [x] Install docker-compose
 - [x] Install Flutter
