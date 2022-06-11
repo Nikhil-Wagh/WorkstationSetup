@@ -13,6 +13,6 @@ ssh -T git@github.com
 ## TODO
 - [x] Install variety
 - [x] Increase keyrepeat
-- [] Install tldr
-- [] Install docker-compose
-- [] Install Flutter
+- [ ] Install tldr
+- [x] Install docker-compose
+- [x] Install Flutter
