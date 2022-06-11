@@ -9,3 +9,4 @@
     - { role: homescreen, tags: homescreen }
     - { role: java, tags: java }
     - { role: docker, tags: docker, become: true }
+    - { role: flutter, tags: flutter }
