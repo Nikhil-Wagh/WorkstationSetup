@@ -31,3 +31,19 @@
     - docker-ce-cli
     - containerd.io
     - docker-compose-plugin
+
+# - name: Create docker plugins folder
+#   become: false
+#   file:
+#     path: "{{ lookup('env', 'HOME') }}/.docker/cli-plugins"
+#     state: directory
+
+# - name: Download docker-compose
+#   become: false
+#   get_url:
+#     url: https://github.com/docker/compose/releases/download/v2.4.1/docker-compose-linux-x86_64
+#     dest: "{{ lookup('env', 'HOME') }}/.docker/cli-plugins/docker-compose"
+#     mode: 0755
+
+# - name: Check docker-compose version
+#   shell: docker compose version
