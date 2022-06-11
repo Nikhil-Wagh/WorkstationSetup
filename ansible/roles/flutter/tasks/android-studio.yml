@@ -1,0 +1,18 @@
+---
+- name: Add Android Studio ppa
+  apt_repository:
+    repo: ppa:maarten-fonville/android-studio
+
+- name: Install Android Studio using apt
+  apt: pkg=android-studio
+
+- name: Prompt run Android-Studio initial setup
+  pause:
+    prompt: "\nPlease Android Studio and run the initial setup"
+  run_once: true
+
+- name: Setup udev rules
+  command: "usermod -aG plugdev {{ lookup('env', 'LOGNAME') }}"
+
+- name: Install sdk-platform-tools-common
+  apt: pkg=android-sdk-platform-tools-common
