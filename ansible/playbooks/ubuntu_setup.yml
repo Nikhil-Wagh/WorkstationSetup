@@ -1,6 +1,6 @@
 - hosts: localhost
   roles:
-    - { role: python, tags: python }
+    - { role: python, tags: python, become: true }
     - { role: keyboard, tags: keyboard }
     - { role: terminal, tags: terminal }
     - { role: font, tags: font }

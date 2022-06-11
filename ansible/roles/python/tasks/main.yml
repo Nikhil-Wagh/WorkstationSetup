@@ -1,5 +1,14 @@
 ---
 - name: Install python-is-python3 pkg
-  become: yes
   apt:
     name: python-is-python3
+
+- name: Install virtual env
+  apt:
+    name: python3-venv
+
+- name: Install virtualenv pip module
+  become: false
+  pip:
+    name: virtualenv
+  tags: virtualenv
