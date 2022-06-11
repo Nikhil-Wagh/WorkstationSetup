@@ -27,4 +27,11 @@
   become: true
   apt:
     pkg: tree
-  tags: tree
+
+- name: Install tldr
+  become: true
+  apt:
+    pkg: tree
+
+- name: tldr first run
+  command: tldr tar
